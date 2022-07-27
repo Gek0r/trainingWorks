@@ -12,12 +12,12 @@ public class CustomCatch {
 			for (int i = 0; i < nums.length; i++) {
 				System.out.println("Sum is now " + sum);
 				if (sum >= 100) {
-					throw new user_exception("You have reached the sum limit!");
+					throw new UserException("You have reached the sum limit!");
 				}
 				sum = sum + nums[i];
 			}
 
-		} catch (user_exception e) {
+		} catch (UserException e) {
 			System.out.println("You have been caught!");
 			System.out.println(e);
 		}
@@ -25,10 +25,10 @@ public class CustomCatch {
 
 }
 
-class user_exception extends Exception {
+class UserException extends Exception {
 	String message;
 
-	user_exception(String message) {
+	UserException(String message) {
 		this.message = message;
 	}
 
