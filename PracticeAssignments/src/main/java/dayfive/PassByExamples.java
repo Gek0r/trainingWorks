@@ -1,4 +1,4 @@
-package dayFive.com.usk.test;
+package dayfive;
 
 public class PassByExamples {
 

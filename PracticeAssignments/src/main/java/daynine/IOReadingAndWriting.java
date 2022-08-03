@@ -1,4 +1,4 @@
-package test.com.training;
+package daynine;
 
 import java.io.FileNotFoundException;
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package dayFour.com.usk.test;
+package daythree;
 
 public class Super {
 	//this will show the effects of the super keyword

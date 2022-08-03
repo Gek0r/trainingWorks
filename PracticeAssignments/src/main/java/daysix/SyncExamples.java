@@ -1,4 +1,4 @@
-package test.com.training;
+package daysix;
 
 class Money {
 	private int balance = 0;

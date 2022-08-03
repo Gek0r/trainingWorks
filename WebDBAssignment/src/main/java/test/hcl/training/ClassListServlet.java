@@ -15,23 +15,34 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/classlist")
-public class ClassListServlet extends HttpServlet{
+public class ClassListServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+
+	@Override
+	public void init() {
+		System.out.println("ListServlet init activated");
+	}
+
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-		PrintWriter out = new PrintWriter("");
-
+		PrintWriter out = res.getWriter();
+		res.setContentType("text/html");
 		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "root", "root");
 			PreparedStatement pst = conn
 					.prepareStatement("SELECT `user_name`, `gender`, `language`, `length` FROM `training`.`classes`");
 			System.out.println(pst);
 			ResultSet rs = pst.executeQuery();
-			out.println(rs);
-			out.println("Class added to database");
+			out.println("Name Gender Languages Length </br>");
+			while (rs.next()) {
+				out.println(rs.getString("user_name") + " " + rs.getString("gender") + " " + rs.getString("language")
+						+ " " + rs.getString("length") + "</br>");
+			}
+			out.println("Classes in database");
 
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		out.close();

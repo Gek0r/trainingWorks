@@ -1,4 +1,4 @@
-package test.com.training;
+package dayseven;
 
 import java.util.ArrayList;
 import java.util.Collections;

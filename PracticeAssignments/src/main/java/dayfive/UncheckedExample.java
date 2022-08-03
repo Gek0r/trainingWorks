@@ -1,4 +1,4 @@
-package test.com.training;
+package dayfive;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package dayFour.com.usk.test;
+package daythree;
 
 public class Interface {
 	public static void main(String args[])

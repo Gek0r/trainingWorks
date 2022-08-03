@@ -1,4 +1,4 @@
-package dayseven;
+package dayfour;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

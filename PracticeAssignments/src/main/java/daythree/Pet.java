@@ -1,4 +1,4 @@
-package dayFour.com.usk.test;
+package daythree;
 
 public class Pet extends Owner{
 	String name = null;

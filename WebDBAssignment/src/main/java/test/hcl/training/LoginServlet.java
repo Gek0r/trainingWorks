@@ -16,49 +16,50 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void init() {
 		System.out.println("LoginServlet init activated");
 	}
-	
-	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		String userName = req.getParameter("username");
 		String password = req.getParameter("password");
-		
 		res.setContentType("text/html");
-		
 		boolean validLogin = true;
-		
+
 		if (userName == null || password == null) {
 			validLogin = false;
 		}
 
 		if (validLogin) {
 			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "root", "root");
-				PreparedStatement pst = conn.prepareStatement("SELECT * FROM `training`.`users` WHERE `user_name` = ? and `password` = ?");
+				PreparedStatement pst = conn
+						.prepareStatement("SELECT * FROM `training`.`users` WHERE `user_name` = ? and `password` = ?");
 				pst.setString(1, userName);
-				pst.setString(1, password);
+				pst.setString(2, password);
 
 				ResultSet rs = pst.executeQuery();
 
 				if (rs.next()) {
-					RequestDispatcher rd = req.getRequestDispatcher("./success.html");
+					RequestDispatcher rd = req.getRequestDispatcher("/success");
 					rd.forward(req, res);
-				}else {
-					res.sendRedirect("./failure.html");
+				} else {
+					res.sendRedirect("./html/failure.html");
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
 			}
 		} else {
-			res.sendRedirect("./failure.html");
+			res.sendRedirect("./html/failure.html");
 		}
-		
-		
 
 	}
 

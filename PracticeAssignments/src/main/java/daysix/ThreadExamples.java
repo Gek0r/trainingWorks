@@ -1,4 +1,4 @@
-package test.com.training;
+package daysix;
 
 public class ThreadExamples {
 

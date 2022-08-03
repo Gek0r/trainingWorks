@@ -1,4 +1,4 @@
-package dayFive.com.usk.test;
+package dayfive;
 
 public class ArrayExamples {
 	public static void main(String args[]) {

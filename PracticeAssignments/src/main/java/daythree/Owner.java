@@ -1,4 +1,4 @@
-package dayFour.com.usk.test;
+package daythree;
 
 public class Owner {
 	private String name = null;

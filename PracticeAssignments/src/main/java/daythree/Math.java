@@ -1,4 +1,4 @@
-package dayFour.com.usk.test;
+package daythree;
 
 public class Math {
 	public int add(int x, int y)

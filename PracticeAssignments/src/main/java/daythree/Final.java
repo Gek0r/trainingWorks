@@ -1,4 +1,4 @@
-package dayFour.com.usk.test;
+package daythree;
 
 final class Final {
 	String word = null;

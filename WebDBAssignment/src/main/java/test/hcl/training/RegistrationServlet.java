@@ -22,10 +22,10 @@ public class RegistrationServlet extends HttpServlet {
 		System.out.println("RegistrationServlet init activated");
 	}
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-		PrintWriter out = new PrintWriter("");
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+		PrintWriter out = res.getWriter();
 		String userName = req.getParameter("username");
-		String gender = req.getParameter("password");
+		String gender = req.getParameter("gender");
 		String[] language = req.getParameterValues("language");
 		String selLang = "";
 		for(String lang : language) {
@@ -33,10 +33,12 @@ public class RegistrationServlet extends HttpServlet {
 		}
 		String length = req.getParameter("length");
 
-		if (userName == null || gender == null || language == null || length == null) {
-			res.sendRedirect("./failure.html");
+		if (userName == null || gender == null || selLang == null || length == null) {
+			res.sendRedirect("./html/failure.html");
+			
 		} else {
 			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "root", "root");
 				PreparedStatement pst = conn.prepareStatement(
 						"INSERT INTO `training`.`classes` (`user_name`, `gender`, `language`, `length`) VALUES ( ? , ? , ? , ?)");
@@ -45,10 +47,12 @@ public class RegistrationServlet extends HttpServlet {
 				pst.setString(3, selLang);
 				pst.setString(4, length);
 
-				pst.executeQuery();
+				pst.executeUpdate();
 				out.println("Class added to database");
 				
 			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}

@@ -1,4 +1,4 @@
-package test.com.training;
+package dayeight;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package dayFour.com.usk.test;
+package daythree;
 
 public class MathNums extends Math{
 	//this extends our math class

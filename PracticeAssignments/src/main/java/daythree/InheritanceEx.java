@@ -1,4 +1,4 @@
-package dayFour.com.usk.test;
+package daythree;
 
 public class InheritanceEx {
 	// 1) Write a program for Inheritance example
