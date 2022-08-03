@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data Course Registration</title>
+</head>
+
+<body>
+	<form action="../registration" method="POST">
+		<h1>WELCOME TO THE DATA BOOTCAMP SIGN UP, PUT IN YOUR INFORMATION
+			BELOW</h1>
+		<table>
+			<tr>
+				<!--username input via text box -->
+				<td>Username : <input type="text" name="username" />
+
+				</td>
+			</tr>
+
+			<!--gender input via radio buttons -->
+			<tr>
+				<td>Gender : M - <input type="radio" name="gender" value="Male" />
+					F - <input type="radio" name="gender" value="Female" />
+				</td>
+			</tr>
+
+			<!--Programming language via checkboxes -->
+			<tr>
+				<td>Python <input type="checkbox" name="language"
+					value="python" /> Julia <input type="checkbox" name="language"
+					value="julia" /> Haskell <input type="checkbox" name="language"
+					value="haskell" /> Hadoop <input type="checkbox" name="language"
+					value="hadoop" />
+				</td>
+			</tr>
+
+			<!--Class length via drop down -->
+			<tr>
+				<td>Class Length(Weeks) : <select name="length">
+						<option value="3">3 Weeks</option>
+						<option value="4">4 Weeks</option>
+						<option value="5">5 Weeks</option>
+						<option value="6">6 Weeks</option>
+						<option value="7">7 Weeks</option>
+				</select>
+				</td>
+			</tr>
+			<!--Submit button-->
+			<tr>
+				<td><input type="submit" value="Register" /></td>
+			</tr>
+		</table>
+
+	</form>
+</body>
+</html>
